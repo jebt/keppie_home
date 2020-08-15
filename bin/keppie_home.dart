@@ -23,5 +23,3 @@ void main(List<String> arguments) async {
     i++;
   }
 }
-
-//todo: push to github
