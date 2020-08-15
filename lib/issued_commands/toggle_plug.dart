@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:isolate';
 
 import 'package:keppie_home/issued_command.dart';
-import 'package:keppie_home/utilities/logger.dart';
 
 import '../isolate_mixin.dart';
 

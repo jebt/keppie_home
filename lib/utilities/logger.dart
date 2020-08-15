@@ -8,5 +8,5 @@ DateFormat dateFormat = DateFormat('HH:mm');
 void log(String message) {
   String timeString = dateFormat.format(DateTime.now());
   String prefix = '$timeString 👸🏼keppie_home.dart:       ';
-  outputFile.writeAsStringSync('$prefix$message\n', mode: FileMode.append);
+  kOutputFile.writeAsStringSync('$prefix$message\n', mode: FileMode.append);
 }
