@@ -1,4 +1,6 @@
 import 'package:keppie_home/issued_commands/iss.dart';
+import 'package:keppie_home/issued_commands/lights_off.dart';
+import 'package:keppie_home/issued_commands/lights_on.dart';
 import 'package:keppie_home/issued_commands/report.dart';
 import 'package:keppie_home/issued_commands/shower_thought.dart';
 import 'package:keppie_home/issued_commands/test_event.dart';
@@ -11,14 +13,16 @@ import 'package:keppie_home/issued_commands/copy_pasta.dart';
 class EventListInitializer {
   List<Event> initialize() {
     return [
+      //TestEvent(),
       Report(),
       Sixtynine(),
-      TestEvent(),
       TogglePlug(),
       CopyPastaTop1(),
       CopyPastaRandomTop10(),
       ShowerThought1(),
       Iss(),
+      LightsOn(),
+      LightsOff(),
     ];
   }
 }
