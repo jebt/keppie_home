@@ -13,7 +13,7 @@ class HueWow extends IssuedCommand {
 
   @override
   void takeAction() async {
-    say('Wow wow wow wow wow wow wow wow wow wow wow...');
+    say('Wow wow wow wow wow wow wow wow wow wow wow wow...');
     FancyHue fancyHue = FancyHue();
     await fancyHue.goCrazy();
   }

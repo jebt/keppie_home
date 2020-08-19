@@ -11,6 +11,7 @@ class FancyHue {
 
   final Duration durOn = Duration(milliseconds: 75);
   final Duration durOff = Duration(milliseconds: 25);
+  final Duration _someExtraTimeToProcess = Duration(milliseconds: 25);
 
   static const int hueMax = 65535;
   static const int satMax = 254;
@@ -64,8 +65,11 @@ class FancyHue {
     for (int i = 0; i < 3; i++) {
       await traverseGamut();
     }
+    await Future.delayed(_someExtraTimeToProcess);
     await backToInitialWithOn();
+    await Future.delayed(_someExtraTimeToProcess);
     await backToInitialOnOrOffSetting();
+    await Future.delayed(_someExtraTimeToProcess);
   }
 
   Future<void> traverseGamut() async {
