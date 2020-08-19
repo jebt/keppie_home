@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/utilities/speech.dart';
 import '../isolate_mixin.dart';
 
 class CopyPastaTop1 extends IssuedCommand with IsolateMixin {
@@ -17,6 +18,7 @@ class CopyPastaTop1 extends IssuedCommand with IsolateMixin {
 
   @override
   void takeAction() {
+    say('Enjoy this copy pasta!');
     Isolate.spawn(cp1, pwConPort.sendPort);
   }
 }
@@ -38,6 +40,7 @@ class CopyPastaRandomTop10 extends IssuedCommand with IsolateMixin {
 
   @override
   void takeAction() {
+    say('Enjoy this random copy pasta!');
     Isolate.spawn(cprt10, pwConPort.sendPort);
   }
 }

@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:keppie_home/utilities/speech.dart';
 
 class FancyHue {
   static const String _bridgeApiUrl = 'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/';
   static const String _lightStateUrl =
       'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/1/state/';
+  static const String _lightStateUrl2 =
+      'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/2/state/';
   Future<http.Response> _initialBridgeState;
 
   final Duration durOn = Duration(milliseconds: 75);
@@ -60,7 +61,6 @@ class FancyHue {
   }
 
   Future<void> goCrazy() async {
-    say('Wow wow wow wow wow wow wow wow wow wow wow...');
     for (int i = 0; i < 3; i++) {
       await traverseGamut();
     }
@@ -85,6 +85,10 @@ class FancyHue {
     return await http.put(_lightStateUrl, body: body);
   }
 
+  Future<http.Response> putBody2(String body) async {
+    return await http.put(_lightStateUrl2, body: body);
+  }
+
   Future<http.Response> backToInitialWithOn() async {
     dynamic decoded = jsonDecode((await _initialBridgeState).body);
     int bri = decoded['lights']['1']['state']['bri'];
@@ -107,5 +111,30 @@ class FancyHue {
     bool on = decoded['lights']['1']['state']['on'];
     await putBody('{"on":$on}');
     return await putBody('{"on":$on}'); //second time to get a hard instant off instead of a slow fading effect
+  }
+
+  Future<bool> isOn() async {
+    dynamic decoded = jsonDecode((await _initialBridgeState).body);
+    return decoded['lights']['1']['state']['on'];
+  }
+
+  void toggleLights() async {
+    dynamic decoded = jsonDecode((await _initialBridgeState).body);
+    bool on = decoded['lights']['1']['state']['on'];
+    if (on) {
+      await turnAllLightsOff();
+    } else {
+      await turnAllLightsOn();
+    }
+  }
+
+  Future<void> turnAllLightsOn() async {
+    await putBody('{"on":true}');
+    await putBody2('{"on":true}');
+  }
+
+  Future<void> turnAllLightsOff() async {
+    await putBody('{"on":false}');
+    await putBody2('{"on":false}');
   }
 }

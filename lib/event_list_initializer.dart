@@ -4,6 +4,7 @@ import 'package:keppie_home/issued_commands/lights_off.dart';
 import 'package:keppie_home/issued_commands/lights_on.dart';
 import 'package:keppie_home/issued_commands/report.dart';
 import 'package:keppie_home/issued_commands/shower_thought.dart';
+import 'package:keppie_home/issued_commands/toggle_lights.dart';
 //import 'package:keppie_home/issued_commands/test_event.dart';
 
 import 'event.dart';
@@ -24,6 +25,7 @@ class EventListInitializer {
       Iss(),
       LightsOn(),
       LightsOff(),
+      ToggleLights(),
       HueWow(),
     ];
   }

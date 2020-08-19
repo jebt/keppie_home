@@ -2,10 +2,10 @@ import 'dart:io';
 import 'dart:isolate';
 
 import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/utilities/constants.dart';
+import 'package:keppie_home/utilities/speech.dart';
 
 import '../isolate_mixin.dart';
-
-String plugOffPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\off.py';
 
 List<String> curlArgs1 = [
   '-L',
@@ -42,7 +42,7 @@ class LightsOff extends IssuedCommand with IsolateMixin {
 
   @override
   void takeAction() async {
-    log('Turning lights off...');
+    say('Turning lights off...');
     await Process.run('curl', curlArgs1, runInShell: true);
     await Process.run('curl', curlArgs2, runInShell: true);
     Isolate.spawn(plugOff, pwConPort.sendPort); // ignore: unawaited_futures
@@ -50,5 +50,5 @@ class LightsOff extends IssuedCommand with IsolateMixin {
 }
 
 void plugOff(SendPort sendPort) {
-  Process.runSync('python', [plugOffPath]);
+  Process.runSync('python', [kPlugOffPath]);
 }

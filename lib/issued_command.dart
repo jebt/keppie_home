@@ -1,3 +1,6 @@
+//todo: detection of commands (and chat-triggers) should really happen in one function with regex pattern matching and
+// forwarded
+
 import 'event.dart';
 import 'dart:io';
 import 'package:keppie_home/utilities/constants.dart';
@@ -54,17 +57,17 @@ abstract class IssuedCommand extends Event {
     tryWriteMarkCommand(updatedText);
   }
 
-  void tryWriteMarkCommand(String updatedText) {
-    int failures = 0;
+  void tryWriteMarkCommand(String updatedText, {int failures = 0}) {
+    int _fails = failures;
     try {
       kOutputFile.writeAsStringSync(updatedText, mode: FileMode.write);
     } catch (e) {
       print(e);
-      failures++;
-      if (failures < 10) {
+      _fails++;
+      if (_fails < 10) {
         sleep(_retryDelayOnException);
-        tryWriteMarkCommand(updatedText);
-      } else if (failures >= 10) {
+        tryWriteMarkCommand(updatedText, failures: _fails);
+      } else if (_fails >= 10) {
         throw Exception('Could not write to live file to mark command.');
       }
     }
