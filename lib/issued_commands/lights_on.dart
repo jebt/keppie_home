@@ -5,8 +5,7 @@ import 'package:keppie_home/issued_command.dart';
 
 import '../isolate_mixin.dart';
 
-//String togglePlugPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\toggle.py';
-String plugOnPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\on.py'; //todo:set
+String plugOnPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\on.py';
 
 List<String> curlArgs1 = [
   '-L',

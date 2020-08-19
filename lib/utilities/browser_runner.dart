@@ -12,13 +12,12 @@ void runBrowser(String url) {
     case 'windows':
       //"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
       Process.runSync('C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', [url], runInShell: true);
-
       break;
     default:
       fail = true;
       break;
   }
   if (!fail) {
-    print('Start browsing...');
+    print('Ran browser.');
   }
 }
