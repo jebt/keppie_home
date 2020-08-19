@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/utilities/speech.dart';
 import '../isolate_mixin.dart';
 
 class Report extends IssuedCommand with IsolateMixin {
@@ -11,11 +12,9 @@ class Report extends IssuedCommand with IsolateMixin {
 
   @override
   void takeAction() {
-    String updatedText = kOutputFile.readAsStringSync().replaceAll('!Report', '🤖!🤖Report🤖');
-    kOutputFile.writeAsStringSync(updatedText, mode: FileMode.write);
     Isolate.spawn(pokeKoolerTron, pwConPort.sendPort);
     Isolate.spawn(pokeArgLib, pwConPort.sendPort);
-    log('On duty, sir!');
+    say('On duty, sir!');
   }
 }
 
