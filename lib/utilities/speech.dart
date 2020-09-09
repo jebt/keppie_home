@@ -2,6 +2,7 @@ import 'dart:cli';
 import 'dart:io';
 
 import 'package:keppie_home/utilities/logger.dart';
+import 'package:pedantic/pedantic.dart';
 
 import 'constants.dart';
 
@@ -11,7 +12,7 @@ void say(String text) {
 }
 
 Future<void> _sayInternal(String text) async {
-  Process.run(kArgLibPath, ['Say', text]);
+  unawaited(Process.run(kArgLibPath, ['Say', text]));
 }
 
 //const String _emojiTestText = 'Umm 😅... so, personally 👨... this is the first 🥇 time 🕰⏰⏳ this has happened 🤔, '

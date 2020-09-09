@@ -6,12 +6,14 @@ class FancyHue {
   static const String _lightStateUrl =
       'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/1/state/';
   static const String _lightStateUrl2 =
-      'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/2/state/';
+      'http://192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/4/state/';
   Future<http.Response> _initialBridgeState;
+  static const String defaultAmbientLightBody =
+      '{"on":true,"sat":222, "bri":64,"hue":7235, "colormode":"xy", "xy": [0.5235,0.4137]}';
 
   final Duration durOn = Duration(milliseconds: 75);
-  final Duration durOff = Duration(milliseconds: 25);
-  final Duration _someExtraTimeToProcess = Duration(milliseconds: 25);
+  final Duration durOff = Duration(milliseconds: 10);
+  final Duration _someExtraTimeToProcess = Duration(milliseconds: 50);
 
   static const int hueMax = 65535;
   static const int satMax = 254;
@@ -36,25 +38,24 @@ class FancyHue {
     return http.get(_bridgeApiUrl);
   }
 
-  Map<String, int> vals = {
-    'hueMax': 65535,
-    'satMax': 254,
-    'satMed': 127,
-    'satMin': 0,
-    'briMax': 254,
-    'briMed': 127,
-    'briDim': 50,
-    'briMin': 0,
-    'red': 0,
-    'yellow': 10923,
-    'green': 21845,
-    'cyan': 32768,
-    'blue': 43690,
-    'magenta': 54613
-  };
+//  Map<String, int> vals = {
+//    'hueMax': 65535,
+//    'satMax': 254,
+//    'satMed': 127,
+//    'satMin': 0,
+//    'briMax': 254,
+//    'briMed': 127,
+//    'briDim': 50,
+//    'briMin': 0,
+//    'red': 0,
+//    'yellow': 10923,
+//    'green': 21845,
+//    'cyan': 32768,
+//    'blue': 43690,
+//    'magenta': 54613
+//  };
 
   static const List<int> colorWheel = [red, yellow, green, cyan, blue, magenta];
-
   static const String _offBody = '{"on":false}';
 
   String bodyWithColor(int color) {
@@ -67,6 +68,9 @@ class FancyHue {
     }
     await Future.delayed(_someExtraTimeToProcess);
     await backToInitialWithOn();
+    await Future.delayed(_someExtraTimeToProcess);
+    await backToInitialWithOn(); //second time because sometimes a bug happens where it end with bright red
+    //todo: read http status codes like 200 success to catch/log/handle errors, maybe repeat requests
     await Future.delayed(_someExtraTimeToProcess);
     await backToInitialOnOrOffSetting();
     await Future.delayed(_someExtraTimeToProcess);
@@ -140,5 +144,10 @@ class FancyHue {
   Future<void> turnAllLightsOff() async {
     await putBody('{"on":false}');
     await putBody2('{"on":false}');
+  }
+
+  Future<void> activateDefaultAmbientLights() async {
+    await putBody(defaultAmbientLightBody);
+    await putBody2(defaultAmbientLightBody);
   }
 }

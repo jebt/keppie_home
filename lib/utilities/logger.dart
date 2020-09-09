@@ -9,7 +9,7 @@ DateFormat dateFormat = DateFormat('HH:mm');
 void log(String message) {
   print(message);
   String timeString = dateFormat.format(DateTime.now());
-  String prefix = '$timeString 👸🏼keppie_home.dart:       ';
+  String prefix = '$timeString 👨‍🦼keppie_home.dart:       ';
   String composedString = '$prefix$message\n';
   tryWrite(composedString);
 }

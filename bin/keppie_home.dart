@@ -13,7 +13,7 @@ import 'package:keppie_home/event.dart';
 import 'package:keppie_home/event_list_initializer.dart';
 import 'package:keppie_home/utilities/logger.dart';
 
-const Duration sleepTime = Duration(milliseconds: 100);
+const Duration sleepTime = Duration(milliseconds: 250); // 17ms~~60hz
 
 void main(List<String> arguments) async {
   log('Initializing KeppieHome™ event loop...');
@@ -22,7 +22,7 @@ void main(List<String> arguments) async {
 
   int i = 0;
   while (true) {
-    if (i % 1000 == 0) {
+    if (i % 5000 == 0) {
       log('Event loop ${(i / 1000).floor()}k: listening...');
     }
     for (Event event in events) {

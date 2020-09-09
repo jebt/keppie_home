@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/high_level/issued_command.dart';
 
 import '../isolate_mixin.dart';
 
@@ -13,16 +13,10 @@ class TogglePlug extends IssuedCommand with IsolateMixin {
       'plug',
       'toggleplug',
       'toggle plug',
-      'light',
-      'toggle light',
-      'togglelight',
       'smartplug',
       'smart plug',
       'togglesmartplug',
       'toggle smart plug',
-      'lamp',
-      'toggle lamp',
-      'togglelamp'
     ];
   }
 

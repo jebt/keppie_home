@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'dart:isolate';
+import 'package:pedantic/pedantic.dart';
 
 import 'package:keppie_home/fancy_hue.dart';
-import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
@@ -34,6 +35,8 @@ class ToggleLights extends IssuedCommand with IsolateMixin {
   ToggleLights() {
     commandList = [
       'toggle lights',
+      'lights',
+      'light',
     ];
   }
 
@@ -43,10 +46,10 @@ class ToggleLights extends IssuedCommand with IsolateMixin {
     bool isOn = await fancyHue.isOn();
     if (isOn) {
       say('Turning lights off...');
-      Isolate.spawn(plugOff, pwConPort.sendPort);
+      unawaited(Isolate.spawn(plugOff, pwConPort.sendPort));
     } else {
       say('Turning lights on...');
-      Isolate.spawn(plugOn, pwConPort.sendPort);
+      unawaited(Isolate.spawn(plugOn, pwConPort.sendPort));
     }
     await fancyHue.toggleLights();
   }

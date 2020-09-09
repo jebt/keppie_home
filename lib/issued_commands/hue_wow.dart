@@ -1,6 +1,4 @@
-import 'dart:cli';
-
-import 'package:keppie_home/issued_command.dart';
+import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/fancy_hue.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
@@ -13,7 +11,7 @@ class HueWow extends IssuedCommand {
 
   @override
   void takeAction() async {
-    say('Wow wow wow wow wow wow wow wow wow wow wow wow...');
+    say('Woooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooowwwwww...');
     FancyHue fancyHue = FancyHue();
     await fancyHue.goCrazy();
   }
