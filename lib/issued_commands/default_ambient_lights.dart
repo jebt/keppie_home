@@ -1,15 +1,17 @@
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:keppie_home/isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 import 'package:keppie_home/high_level/issued_command.dart';
-import 'package:keppie_home/fancy_hue.dart';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
+import 'package:keppie_home/utilities/fancy_hue.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
-class DefaultAmbientLights extends IssuedCommand with IsolateMixin {
+class DefaultAmbientLights extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   DefaultAmbientLights() {
     commandList = [
+      'default ambient lights',
       'amb',
       'ambient',
       'default',
@@ -17,7 +19,6 @@ class DefaultAmbientLights extends IssuedCommand with IsolateMixin {
       'dl',
       'ambient lights',
       'ambient light',
-      'default ambient lights',
       'default light',
     ];
   }

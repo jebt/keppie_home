@@ -1,13 +1,14 @@
 import 'dart:io';
 import 'dart:isolate';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
 import 'package:pedantic/pedantic.dart';
 
-import 'package:keppie_home/fancy_hue.dart';
+import 'package:keppie_home/utilities/fancy_hue.dart';
 import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
-import '../isolate_mixin.dart';
+import '../high_level/isolate_mixin.dart';
 
 //List<String> curlArgs1 = [
 //  '-L',
@@ -31,7 +32,7 @@ import '../isolate_mixin.dart';
 //  '{"on":false}'
 //];
 
-class ToggleLights extends IssuedCommand with IsolateMixin {
+class ToggleLights extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   ToggleLights() {
     commandList = [
       'toggle lights',

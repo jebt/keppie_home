@@ -5,7 +5,7 @@ import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
-import '../isolate_mixin.dart';
+import '../high_level/isolate_mixin.dart';
 
 List<String> curlArgs1 = [
   '-L',

@@ -1,8 +1,9 @@
 import 'package:keppie_home/high_level/issued_command.dart';
-import 'package:keppie_home/fancy_hue.dart';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
+import 'package:keppie_home/utilities/fancy_hue.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
-class HueWow extends IssuedCommand {
+class HueWow extends IssuedCommand with ShortcutsMixin {
   HueWow() {
     commandList = [
       'wow',

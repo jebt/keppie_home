@@ -1,7 +1,7 @@
 //todo: detection of commands (and chat-triggers) should really happen in one function with regex pattern matching and
 // forwarded
 
-import '../event.dart';
+import 'event.dart';
 import 'package:keppie_home/utilities/central_file_manager.dart';
 
 abstract class IssuedCommand extends Event {

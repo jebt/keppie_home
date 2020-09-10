@@ -3,12 +3,13 @@ import 'dart:isolate';
 
 import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:http/http.dart' as http;
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
 import 'package:keppie_home/utilities/browser_runner.dart';
-import 'package:keppie_home/isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 import 'package:keppie_home/utilities/logger.dart';
 import 'package:keppie_home/utilities/speech.dart';
 
-class Iss extends IssuedCommand with IsolateMixin {
+class Iss extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   Iss() {
     commandList = [
       'iss',

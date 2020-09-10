@@ -1,13 +1,15 @@
 import 'dart:io';
 import 'dart:isolate';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/high_level/issued_command.dart';
-import '../isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 
-class ShowerThought1 extends IssuedCommand with IsolateMixin {
+class ShowerThought1 extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   ShowerThought1() {
     commandList = [
-      'st1' 'shower thought',
+      'shower thought',
+      'st1',
       'showerthought',
       'stt',
       'stt1',

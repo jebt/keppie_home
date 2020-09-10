@@ -9,15 +9,22 @@
 
 import 'dart:io';
 
-import 'package:keppie_home/event.dart';
-import 'package:keppie_home/event_list_initializer.dart';
+import 'package:keppie_home/high_level/event.dart';
+import 'package:keppie_home/app_main/event_list_initializer.dart';
+import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/utilities/logger.dart';
+import 'package:keppie_home/utilities/http_shortcuts_json.dart';
 
 const Duration sleepTime = Duration(milliseconds: 250); // 17ms~~60hz
 
 void main(List<String> arguments) async {
   log('Initializing KeppieHome™ event loop...');
   List<Event> events = EventListInitializer().initialize();
+
+  String httpShortcutsJson = generateHttpShortcutsJson(events);
+  File shortcutsFile = File(kOutputFileDir + 'generated_shortcuts.json');
+  shortcutsFile.writeAsStringSync(httpShortcutsJson, mode: FileMode.write);
+
   log('!report!');
 
   int i = 0;

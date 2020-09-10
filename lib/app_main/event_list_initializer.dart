@@ -6,14 +6,14 @@ import 'package:keppie_home/issued_commands/lights_on.dart';
 import 'package:keppie_home/issued_commands/report.dart';
 import 'package:keppie_home/issued_commands/shower_thought.dart';
 import 'package:keppie_home/issued_commands/toggle_lights.dart';
-import 'issued_commands/sixtynine.dart';
+import 'package:keppie_home/issued_commands/sixtynine.dart';
 import 'package:keppie_home/issued_commands/toggle_plug.dart';
 import 'package:keppie_home/issued_commands/copy_pasta.dart';
 import 'package:keppie_home/issued_commands/default_ambient_lights.dart';
 //import 'package:keppie_home/issued_commands/test_event.dart';
 
-import 'event.dart';
-import 'issued_commands/spotify_sultans_of_swing.dart';
+import 'package:keppie_home/high_level/event.dart';
+import 'package:keppie_home/issued_commands/spotify_sultans_of_swing.dart';
 
 class EventListInitializer {
   List<Event> initialize() {

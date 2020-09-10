@@ -2,9 +2,9 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:keppie_home/utilities/constants.dart';
 
-import 'file:///C:/DATA%20Samsung%20500GB%20SSD/gitRepos/keppie_home/lib/high_level/issued_command.dart';
+import 'package:keppie_home/high_level/issued_command.dart';
 
-import '../isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 
 String togglePlugPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\toggle.py';
 

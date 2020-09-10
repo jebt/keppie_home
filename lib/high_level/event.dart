@@ -1,4 +1,4 @@
-import 'utilities/logger.dart' as logger;
+import 'package:keppie_home/utilities/logger.dart' as logger;
 
 abstract class Event {
   void check();

@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'dart:isolate';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
 import 'package:keppie_home/utilities/constants.dart';
 import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/utilities/speech.dart';
-import '../isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 
 class CopyPastaTop1 extends IssuedCommand with IsolateMixin {
   CopyPastaTop1() {
@@ -24,6 +25,7 @@ class CopyPastaTop1 extends IssuedCommand with IsolateMixin {
 class CopyPastaRandomTop10 extends IssuedCommand with IsolateMixin {
   CopyPastaRandomTop10() {
     commandList = [
+      't10RandCopyPasta',
       'cp10',
       'cpr',
       'cpr10',

@@ -1,6 +1,6 @@
 // todo: change this file into a code snippet
 
-import 'file:///C:/DATA%20Samsung%20500GB%20SSD/gitRepos/keppie_home/lib/high_level/issued_command.dart';
+import 'package:keppie_home/high_level/issued_command.dart';
 
 class Template extends IssuedCommand {
   // todo: change class name

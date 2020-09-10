@@ -3,7 +3,7 @@ import 'dart:isolate';
 
 import 'package:keppie_home/high_level/issued_command.dart';
 
-import '../isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
 
 String togglePlugPath = 'C:\\DATA Samsung 500GB SSD\\git\\Code\\Python\\tplink-smartplug-api-master\\toggle.py';
 

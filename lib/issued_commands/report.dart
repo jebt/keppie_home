@@ -3,9 +3,10 @@ import 'dart:isolate';
 import 'package:keppie_home/high_level/issued_command.dart';
 import 'package:keppie_home/utilities/speech.dart';
 import 'package:http/http.dart' as http;
-import '../isolate_mixin.dart';
+import 'package:keppie_home/high_level/isolate_mixin.dart';
+import 'package:keppie_home/high_level/shortcuts_mixin.dart';
 
-class Report extends IssuedCommand with IsolateMixin {
+class Report extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   Report() {
     commandList = ['report'];
   }
