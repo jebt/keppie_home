@@ -14,6 +14,9 @@
       <w>keppie</w>
       <w>kooler</w>
       <w>lightbulb</w>
+      <w>lightoff</w>
+      <w>lightsoff</w>
+      <w>lightson</w>
       <w>macos</w>
       <w>reddit</w>
       <w>samsung</w>
@@ -23,6 +26,8 @@
       <w>smartplug</w>
       <w>spotify</w>
       <w>strt</w>
+      <w>toggleplug</w>
+      <w>togglesmartplug</w>
       <w>tplink</w>
       <w>unawaited</w>
       <w>vals</w>

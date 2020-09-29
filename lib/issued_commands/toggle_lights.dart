@@ -10,28 +10,6 @@ import 'package:keppie_home/utilities/speech.dart';
 
 import '../high_level/isolate_mixin.dart';
 
-//List<String> curlArgs1 = [
-//  '-L',
-//  '-X',
-//  'PUT',
-//  '192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/1/state',
-//  '-H',
-//  'Content-Type: text/plain',
-//  '--data-raw',
-//  '{"on":false}'
-//];
-//
-//List<String> curlArgs2 = [
-//  '-L',
-//  '-X',
-//  'PUT',
-//  '192.168.178.210/api/p307ofvMjPAOX98VpDckmPBFGLdEcWxC8TaEsjDB/lights/2/state',
-//  '-H',
-//  'Content-Type: text/plain',
-//  '--data-raw',
-//  '{"on":false}'
-//];
-
 class ToggleLights extends IssuedCommand with IsolateMixin, ShortcutsMixin {
   ToggleLights() {
     commandList = [

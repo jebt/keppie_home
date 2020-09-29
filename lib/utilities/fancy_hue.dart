@@ -130,18 +130,18 @@ class FancyHue {
     dynamic decoded = jsonDecode((await _initialBridgeState).body);
     bool on = decoded['lights']['1']['state']['on'];
     if (on) {
-      await turnAllLightsOff();
+      await turnDownstairsLightsOff();
     } else {
-      await turnAllLightsOn();
+      await turnDownstairsLightsOn();
     }
   }
 
-  Future<void> turnAllLightsOn() async {
+  Future<void> turnDownstairsLightsOn() async {
     await putBody('{"on":true}');
     await putBody2('{"on":true}');
   }
 
-  Future<void> turnAllLightsOff() async {
+  Future<void> turnDownstairsLightsOff() async {
     await putBody('{"on":false}');
     await putBody2('{"on":false}');
   }
